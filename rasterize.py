@@ -1,6 +1,6 @@
 # rasterize.py
 # ArcGIS version: 10.0
-# Python version: 2.6
+# Python version: 2.6.5
 # NumPy version: 1.3.0
 #
 # Converts a polygon feature class to raster. Cell values are area-weighted. 
@@ -66,7 +66,8 @@ def rasterize(polygon, field, cellsize, output_raster, value_to_nodata=-9999.0):
 			if mask[row][col]==0:
 				array[row][col] = value_to_nodata
 	
-	output = arcpy.NumPyArrayToRaster(array, lowerleft, cellsize, cellsize, value_to_nodata)
+	output = arcpy.NumPyArrayToRaster(array, lowerleft, cellsize, cellsize, 
+                                      value_to_nodata)
 	output.save(output_raster)
 	
 	arcpy.Delete_management(polygrid)
