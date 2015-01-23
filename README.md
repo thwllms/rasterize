@@ -8,7 +8,9 @@ Requires:
 - NumPy 10.0+
 
 Usage:
-<pre><code>import rasterize.py
+<pre><code>
+'''python
+import rasterize.py
 
 polygon = 'C:\polygon.shp'
 field = 'TREECANOPY' # numeric fields only!
@@ -17,4 +19,5 @@ output_raster = 'C:\rasterized'
 value_to_nodata=-9999.0 # optional parameter; -9999.0 by default
 
 rasterize(polygon, field, cellsize, output_raster, value_to_nodata)
+'''
 </code></pre>
