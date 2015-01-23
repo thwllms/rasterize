@@ -9,7 +9,7 @@ Requires:
 
 Usage:
 ```python
-import rasterize.py
+from rasterize import rasterize
 
 polygon = 'C:\polygon.shp'
 field = 'TREECANOPY' # numeric fields only!
