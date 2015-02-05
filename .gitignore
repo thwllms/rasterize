@@ -1,2 +1,3 @@
-.rasterize.py.swp
-rasterize.py~
+*.swp
+*~
+*.pyc
