@@ -55,7 +55,7 @@ def rasterize(polygon, field, cellsize, output_raster,
     # array. Since arcpy doesn't recognize masked numpy arrays, we need to
     # build our own version of a mask. The "mask" array keeps track of which
     # cells need to be masked or unmasked. After the calculations take place,
-    # all "masked" cells are set to NoData.
+    # all remaining "masked" cells are set to NoData.
     array = numpy.zeros((height, width), 'float32')
     mask = numpy.zeros((height, width), 'bool')
     sc = arcpy.SearchCursor(intersected)
@@ -68,7 +68,7 @@ def rasterize(polygon, field, cellsize, output_raster,
         array[row][col] += value_weighted
         mask[row][col] = 1 # if a cell value is incremented, unmask the cell.
 
-    # Set all unmaksed cells to NoData
+    # Set all masked cells to NoData
     for row in range(0, array.shape[0]):
         for col in range(0, array.shape[1]):
             if mask[row][col] == 0:
